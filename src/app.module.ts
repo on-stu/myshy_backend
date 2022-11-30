@@ -8,13 +8,16 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entitiy';
 import { Song } from './songs/entities/song.entity';
 
+const HOST =
+  process.env.NODE_ENV === 'development' ? 'minsu.info' : '127.0.0.1';
+
 @Module({
   imports: [
     AuthModule,
     SongsModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'minsu.info',
+      host: HOST,
       port: 3306,
       username: 'root',
       password: 'tpwjdalstn1!',
