@@ -19,7 +19,7 @@ const HOST =
       type: 'mysql',
       host: HOST,
       port: 3306,
-      username: 'minsu',
+      username: 'root',
       password: 'tpwjdalstn1!',
       database: 'Myshy',
       entities: [User, Song],
