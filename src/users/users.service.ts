@@ -8,4 +8,8 @@ export class UsersService {
   constructor(
     @InjectRepository(User) private readonly users: Repository<User>,
   ) {}
+
+  async create(user: User) {
+    return await this.users.save(user);
+  }
 }

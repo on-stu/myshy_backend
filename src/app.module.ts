@@ -7,14 +7,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entitiy';
 import { Song } from './songs/entities/song.entity';
+import { Comment } from './songs/entities/comment.entity';
 
 const HOST =
-  process.env.NODE_ENV === 'development' ? 'minsu.info' : '127.0.0.1';
+  process.env.NODE_ENV === 'development' ? 'minsu.info' : 'minsu.info';
 
 @Module({
   imports: [
     AuthModule,
     SongsModule,
+    UsersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: HOST,
@@ -22,11 +24,10 @@ const HOST =
       username: 'root',
       password: 'tpwjdalstn1!',
       database: 'Myshy',
-      entities: [User, Song],
+      entities: [User, Song, Comment],
       synchronize: true,
       logging: true,
     }),
-    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
