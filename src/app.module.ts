@@ -10,7 +10,7 @@ import { Song } from './songs/entities/song.entity';
 import { Comment } from './songs/entities/comment.entity';
 
 const HOST =
-  process.env.NODE_ENV === 'development' ? 'minsu.info' : 'minsu.info';
+  process.env.NODE_ENV === 'development' ? 'minsu.info' : 'localhost';
 
 @Module({
   imports: [
