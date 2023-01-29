@@ -19,7 +19,7 @@ const HOST =
     UsersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'minsu.info',
+      host: HOST,
       port: 3306,
       username: 'root',
       password: 'tpwjdalstn1!',
