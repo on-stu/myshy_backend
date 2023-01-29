@@ -74,7 +74,7 @@ export class SongsController {
   ) {
     const song = await this.songsService.getOne(parseInt(id));
 
-    const videoPath = join(__dirname, '../../', song.videoUrl);
+    const videoPath = join(__dirname, '../../dist/', song.videoUrl);
     const { size } = statSync(videoPath);
     const videoRange = headers.range;
     if (videoRange) {

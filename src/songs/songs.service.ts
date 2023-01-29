@@ -41,6 +41,7 @@ export class SongsService {
       where: { id },
       relations: ['comments', 'comments.user'],
     });
+
     return song;
   }
 
