@@ -22,7 +22,7 @@ import { join } from 'path';
 import { CreateSongDto } from './dtos/create-song.dto';
 import { SongsService } from './songs.service';
 import { Headers } from '@nestjs/common';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 
 @Controller('songs')
 export class SongsController {
@@ -53,7 +53,9 @@ export class SongsController {
   async createSong(
     @Body() createSongDto: CreateSongDto,
     @UploadedFile() file: Express.Multer.File,
+    @Req() req: Request,
   ): Promise<any> {
+    req.connection.setTimeout(1000 * 60 * 60 * 24);
     return this.songsService.createSong(createSongDto, file);
   }
 
